@@ -43,6 +43,7 @@ body{
   background: rgba(196, 196, 196, 0.1);
   backdrop-filter: blur(4px);
   display: flex;
+  overflow: hidden;
 }
 
 .sidebar{
