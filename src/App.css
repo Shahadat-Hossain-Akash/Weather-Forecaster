@@ -281,12 +281,41 @@ body{
   margin-bottom: 0.5rem;
   text-transform: uppercase;
 }
-@media screen and (max-width: 450px){
-  .sidebar{
-    width: 330px;
-  }
+@media screen and (max-width: 420px){
+  
   .sidebar.sidebar-inactive{
-    transform: translateX(-305px);
+    transform: translateX(-320px);
+  }
+  aside .search-content{
+    margin-bottom: 0;
+  }
+  aside .wind{
+    margin-bottom: 0rem;
+  }
+  aside .feels-like{
+    font-size: 1.5rem;
+  }
+  aside .day-night-lists{
+    margin-bottom: 1rem;
+    font-size: 14px;
+  }
+  aside .popular{
+    margin-bottom: 1rem;
+    font-size: 1rem;
+  }
+  aside .city{
+    padding: .5rem .75rem;
+  }
+  aside .cities{
+    grid-template-columns: repeat(2, .45fr);
+    place-content: center;
+  }
+  aside .author{
+    margin-top: .75rem;
+    font-size: 11px;
+  }
+  .slider{
+    right: -0%;
   }
 }
 @media screen and (max-width: 800px){
@@ -309,6 +338,10 @@ body{
   .temperature{
     font-size: 72px;
     margin-bottom: 0rem;
+  }
+  
+  .feels-like{
+    margin: 1rem;
   }
   .humidity{
     margin-bottom: 0;
