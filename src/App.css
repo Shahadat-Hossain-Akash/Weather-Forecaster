@@ -281,9 +281,12 @@ body{
   text-transform: uppercase;
 }
 @media screen and (max-width: 420px){
-  
   .sidebar.sidebar-inactive{
     transform: translateX(-330px);
+  }
+  aside .sidebar{
+    padding-top: 3rem;
+    padding: 0 1.5rem;
   }
   aside .search-content{
     margin-bottom: 0;
@@ -327,7 +330,7 @@ body{
   }
   .weather{
     position: absolute;
-    left: 10%;
+    left: 12%;
   }
   .search-content{
     margin-bottom: 1rem;
