@@ -146,8 +146,8 @@ body{
 .popular{
   font-size: 1.25rem;
   font-weight: 200;
-  width: 100%;
   margin-bottom: 1.5rem;
+  text-align: start;
 }
 .cities{
   width: 280px;
@@ -284,7 +284,7 @@ body{
 @media screen and (max-width: 420px){
   
   .sidebar.sidebar-inactive{
-    transform: translateX(-320px);
+    transform: translateX(-340px);
   }
   aside .search-content{
     margin-bottom: 0;
@@ -301,18 +301,20 @@ body{
   }
   aside .popular{
     margin-bottom: 1rem;
-    font-size: 1rem;
+    font-size: .75rem;
   }
   aside .city{
     padding: .5rem .75rem;
   }
-  aside .cities{
-    grid-template-columns: repeat(2, .45fr);
-    place-content: center;
-  }
+
   aside .author{
     margin-top: .75rem;
     font-size: 11px;
+  }
+  aside .popular{
+    margin-left: 2rem;
+    background-color: #EB7F81;
+    width: 80%;
   }
   .slider{
     right: -0%;
