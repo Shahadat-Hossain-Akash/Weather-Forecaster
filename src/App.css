@@ -147,7 +147,6 @@ body{
   font-size: 1.25rem;
   font-weight: 200;
   margin-bottom: 1.5rem;
-  text-align: start;
 }
 .cities{
   width: 280px;
@@ -311,11 +310,7 @@ body{
     margin-top: .75rem;
     font-size: 11px;
   }
-  aside .popular{
-    margin-left: 2rem;
-    background-color: #EB7F81;
-    width: 80%;
-  }
+  
   .slider{
     right: -0%;
   }
