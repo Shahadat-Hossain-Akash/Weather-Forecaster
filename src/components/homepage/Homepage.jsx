@@ -1,7 +1,8 @@
 import gsap from 'gsap';
 import React, { useLayoutEffect, useRef} from 'react'
+import { localTimeFormat } from '../../services/WeatherServices';
 
-const Homepage = () => {
+const Homepage = ({weather}) => {
     let type = useRef()
     let hourF = useRef()
     let dailyF = useRef()
@@ -103,74 +104,47 @@ const Homepage = () => {
             <div ref={el => header = el} className="header">National Weather</div>
             <span ref={el => forecast = el} className='forecast'>Weather Forecast</span>
             <div ref={el => type = el} className="type">
-                <span className="weather-type">Storm</span>
-                <span className="weather-type">Heavy Rain</span>
+                <span className="weather-type">{weather.main}</span>
+                <span className="weather-type">{weather.description}</span>
             </div>
             <div ref={el => todayDate = el} className="today-date">
-                Tuesday, 31 May 2022, 8:45 pm
+                {localTimeFormat(weather.dt, weather.timezone)}
             </div>
-            <span ref={el => pl = el} className="place">Dhaka, Bangladesh</span>
+            <span ref={el => pl = el} className="place">{weather.name}, {weather.country}</span>
             <div ref={el => previs = el} className="pre-vis">
                 <span className="pressure">Pressure -
-                    <span className='pv-text'>1015 mb</span>
+                    <span className='pv-text'>{weather.pressure} atm</span>
                 </span>
                 <span className="visibility">Visibility -
-                    <span className='pv-text'>1015 m</span>
+                    <span className='pv-text'>{weather.visibility} m</span>
                 </span>
             </div>
             <div ref={el => level = el} className="level">
                 <span className="ground">Ground-level -
-                    <span className='pv-text'>1015 mb</span>
+                    <span className='pv-text'>{weather.grnd_level} m</span>
                 </span>
                 <span className="sea">Sea-level -
-                    <span className='pv-text'>1015 m</span>
+                    <span className='pv-text'>{weather.sea_level} m</span>
                 </span>
             </div>
             <span ref={el => htext = el} className="hourly-forecast">Hourly Forecast</span>
             <div ref={el => hourF = el} className="hour-wrapper">
+                {weather.hourly.map((h, index) => (
                 <div className="hour-details">
-                    <span className="hour-temp">15°</span>
-                    <span className="hour">12:00 PM</span>
+                    <span className="hour-temp">{h.temp}</span>
+                    <span className="hour">{h.time}</span>
                 </div>
-                <div className="hour-details">
-                    <span className="hour-temp">16°</span>
-                    <span className="hour">1:00 PM</span>
-                </div>
-                <div className="hour-details">
-                    <span className="hour-temp">17°</span>
-                    <span className="hour">2:00 PM</span>
-                </div>
-                <div className="hour-details">
-                    <span className="hour-temp">21°</span>
-                    <span className="hour">3:00 PM</span>
-                </div>
-                <div className="hour-details">
-                    <span className="hour-temp">22°</span>
-                    <span className="hour">4:00 PM</span>
-                </div>
+                    ))
+                }
             </div>
             <span ref={el => dtext = el} className="daily-forecast">Daily Forecast</span>
             <div ref={el => dailyF = el} className="daily-wrapper">
+            {weather.day.map((d, index) => (
                 <div className="daily-details">
-                    <span className="daily-temp">15°</span>
-                    <span className="daily">wed</span>
+                    <span className="daily-temp">{d.temp}</span>
+                    <span className="daily">{d.day}</span>
                 </div>
-                <div className="daily-details">
-                    <span className="daily-temp">16°</span>
-                    <span className="daily">thu</span>
-                </div>
-                <div className="daily-details">
-                    <span className="daily-temp">17°</span>
-                    <span className="daily">fri</span>
-                </div>
-                <div className="daily-details">
-                    <span className="daily-temp">21°</span>
-                    <span className="daily">sat</span>
-                </div>
-                <div className="daily-details">
-                    <span className="daily-temp">22°</span>
-                    <span className="daily">sun</span>
-                </div>
+                ))}
             </div>
         </section>
     )

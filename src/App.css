@@ -87,7 +87,7 @@ body{
   text-align: center;
 }
 .temperature{
-  font-size: 6rem;
+  font-size: 5rem;
   font-weight: 200;
 }
 .humidity{
@@ -106,7 +106,7 @@ body{
   font-size: 1rem;
 }
 .wind{
-  width: 140px;
+  width: 160px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -114,7 +114,7 @@ body{
   font-size: 0.875rem;
   margin-bottom: 4rem;
 }
-.wind :nth-child(2){
+.wind :nth-child(1){
   color: var(--secondary-text);
 }
 .feels-like{
@@ -132,13 +132,14 @@ body{
 }
 .day-night-lists{
   display: grid;
-  grid-template-columns: repeat(2, minmax(min-content, 115px));
+  grid-template-columns: repeat(2, 110px);
   font-weight: 300;
-  column-gap: 2rem;
+  column-gap: 1.5rem;
   row-gap: 1rem;
-  place-items: start;
+  place-items: stretch;
   margin-left: .25rem;
   margin-bottom: 3rem;
+  font-size: 12px;
 }
 .day-night-list.second{
   color: var(--secondary-text);
@@ -206,6 +207,7 @@ body{
   font-weight: 500;
   font-size: 64px;
   margin-right: 0.25rem;
+  text-transform: capitalize;
 }
 .type :nth-child(2){
   color: var(--primary-text);
@@ -254,7 +256,7 @@ body{
 }
 .hour-details :first-child{
   margin-bottom: 0.5rem;
-  font-size: 32px;
+  font-size: 26px;
 }
 .hour-details :nth-child(2){
   font-size: 12px;
@@ -270,24 +272,21 @@ body{
   font-size: 24px;
 }
 .daily-details :first-child{
-  font-size: 40px;
+  font-size: 36px;
   color: var(--secondary-text);
   margin-bottom: 0.5rem;
 }
 .daily-details :nth-child(2){
-  font-size: 24px;
+  font-size: 22px;
   color: var(---tertiary-text);
   margin-bottom: 0.5rem;
   text-transform: uppercase;
 }
 @media screen and (max-width: 420px){
   .sidebar.sidebar-inactive{
-    transform: translateX(-330px);
+    transform: translateX(-305px);
   }
-  aside .sidebar{
-    padding-top: 3rem;
-    padding: 0 1.5rem;
-  }
+  
   aside .search-content{
     margin-bottom: 0;
   }
@@ -315,7 +314,7 @@ body{
   }
   
   .slider{
-    right: -0%;
+    right: -4%;
   }
 }
 @media screen and (max-width: 800px){
@@ -327,6 +326,8 @@ body{
   .sidebar{
     z-index: 100;
     backdrop-filter: blur(40px);
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
   }
   .weather{
     position: absolute;
