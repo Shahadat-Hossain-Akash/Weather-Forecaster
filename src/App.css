@@ -284,7 +284,7 @@ body{
 }
 @media screen and (max-width: 420px){
   .sidebar.sidebar-inactive{
-    transform: translateX(-315px);
+    transform: translateX(-320px);
   }
   
   aside .search-content{

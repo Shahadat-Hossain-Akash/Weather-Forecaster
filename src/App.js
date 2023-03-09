@@ -27,10 +27,10 @@ function App() {
                 toast.success(`Successfully fetched weather for ${data.name}, ${data.country}`)
                 setweather(data)
             })
-            console.log(weather)
+            //console.log(weather)
         }
         fetchWeather()
-    }, [query, units])
+    }, [query])
 
     return (
 
