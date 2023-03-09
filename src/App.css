@@ -291,17 +291,18 @@ body{
     margin-bottom: 0;
   }
   aside .wind{
-    margin-bottom: 0rem;
+    margin-bottom: .5rem;
   }
   aside .feels-like{
     font-size: 1.5rem;
+    margin-bottom: 2rem;
   }
   aside .day-night-lists{
-    margin-bottom: 1rem;
+    margin-bottom: 2.5rem;
     font-size: 14px;
   }
   aside .popular{
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     font-size: .75rem;
   }
   aside .city{
@@ -309,7 +310,7 @@ body{
   }
 
   aside .author{
-    margin-top: .75rem;
+    margin-top: 1rem;
     font-size: 11px;
   }
   
@@ -387,13 +388,16 @@ body{
     margin-top: 0.5rem;
   }
   .hour-details :first-child{
-    font-size: 28px;
+    font-size: 24px;
+  }
+  .hour-details :nth-child(2){
+    font-size: 12px;
   }
   .daily-details :first-child{
-    font-size: 32px;
+    font-size: 28px;
   }
   .daily-details :nth-child(2){
-    font-size: 18px;
+    font-size: 16px;
   }
   .hour-wrapper, .daily-wrapper{
     margin-right: 1rem;

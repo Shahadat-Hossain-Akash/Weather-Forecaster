@@ -131,7 +131,7 @@ const Homepage = ({weather}) => {
             <div ref={el => hourF = el} className="hour-wrapper">
                 {weather.hourly.map((h, index) => (
                 <div className="hour-details">
-                    <span className="hour-temp">{h.temp}</span>
+                    <span className="hour-temp">{h.temp.toFixed()}</span>
                     <span className="hour">{h.time}</span>
                 </div>
                     ))
@@ -141,7 +141,7 @@ const Homepage = ({weather}) => {
             <div ref={el => dailyF = el} className="daily-wrapper">
             {weather.day.map((d, index) => (
                 <div className="daily-details">
-                    <span className="daily-temp">{d.temp}</span>
+                    <span className="daily-temp">{d.temp.toFixed()}</span>
                     <span className="daily">{d.day}</span>
                 </div>
                 ))}
