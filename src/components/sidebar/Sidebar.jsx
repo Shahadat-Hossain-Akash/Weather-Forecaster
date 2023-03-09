@@ -1,15 +1,18 @@
 import React, { useState } from 'react'
-import temp from '../../image/Thermometer.png'
+import loc from '../../image/location.png'
 import search from '../../image/Search.png'
 import { DayNightInfo } from './DayNightInfo'
 import { PopularCities } from './PopularCities'
 import both from '../../image/Data Transfer.png'
 import { localTimeFormat } from '../../services/WeatherServices'
 import { DateTime } from 'luxon'
+import {ToastContainer, toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
-const Sidebar = ({weather}) => {
+const Sidebar = ({weather, setquery}) => {
     const [slider, setslider] = useState(false)
+    const [city, setcity] = useState("")
     const handleSlider = () => {
         if(slider){
             setslider(false)
@@ -18,14 +21,27 @@ const Sidebar = ({weather}) => {
             setslider(true)
         }
     }
+    const handleSearchClick = () => {
+        if (city !== ""){
+            setquery({q: city})
+        }
+    }
+    const handleSearchLocation = () => {
+        navigator.geolocation.getCurrentPosition((position) => {
+            let lat = position.coords.latitude
+            let lon = position.coords.longitude
+            toast.success("Location fetched!")
+            setquery({lat, lon})
+        })
+    }
   return (
 
     <aside className={slider ? "sidebar" : "sidebar sidebar-inactive"}>
     <div onClick={handleSlider} className="slider"><img src={both} alt="" /></div>
         <div className="search-content">
-            <img src={temp} alt="" />
-            <input className='search' type="text" placeholder='Dhaka, Bangladesh'/>
-            <img src={search} alt="" />
+            <img src={loc} alt="" onClick={handleSearchLocation}/>
+            <input className='search' type="text" placeholder='Search city...' value={city} onChange={(e) => setcity(e.currentTarget.value)}/>
+            <img src={search} alt="" onClick={handleSearchClick}/>
         </div>
         <div className="temperature">{weather.temp}°</div>
         <div className="humidity">
@@ -55,7 +71,7 @@ const Sidebar = ({weather}) => {
         <span className='popular'>Popular searches</span>
         <div className="cities">
             {PopularCities.map((pc) => (
-                <button className="city">{pc.city}</button>
+                <button className="city" onClick={() => setquery({q: pc.city})}>{pc.city}</button>
             ))}
         </div>
         <span className='author'>Designed and coded by Shahadat</span>

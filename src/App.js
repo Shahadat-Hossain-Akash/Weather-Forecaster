@@ -4,6 +4,9 @@ import Homepage from './components/homepage/Homepage';
 import Sidebar from './components/sidebar/Sidebar';
 import getFormattedWeatherData from './services/WeatherServices';
 import getWeather from './services/WeatherServices';
+import {ToastContainer, toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { Slide, Zoom, Flip, Bounce } from 'react-toastify';
 
 function App() {
 
@@ -13,22 +16,35 @@ function App() {
 
     useEffect(() => {
         const fetchWeather = async () => {
-            await getFormattedWeatherData({...query, units}).then((data) => setweather(data))
+            const message = query.q
+                ? query.q
+                : "current location."
+            toast.info("Fetching weather for " + message)
+            await getFormattedWeatherData({
+                ...query,
+                units
+            }).then((data) => {
+                toast.success(`Successfully fetched weather for ${data.name}, ${data.country}`)
+                setweather(data)
+            })
             console.log(weather)
         }
         fetchWeather()
     }, [query, units])
 
-    
     return (
 
         <div className="container">
-        {weather && (
-          <>
-            <Sidebar weather={weather}/>
-            <Homepage weather={weather}/>
-            </>
-            )}
+            {
+                weather && (<> < Sidebar weather = {
+                    weather
+                }
+                setquery = {
+                    setquery
+                } /> <Homepage weather={weather}/>
+            </>)
+            }
+            <ToastContainer theme='dark' autoClose={3000} newestOnTop={true} transition={Slide}/>
         </div>
     );
 }
